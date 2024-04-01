@@ -1,0 +1,19 @@
+img{
+    height: 300px;
+    object-fit: cover;
+}
+
+.usecard{
+    border: 1px solid;
+    width: 300px;
+}
+
+.usecard_name{
+    text-align: center;
+    font-family: cursive;
+}
+
+.usecard-container{
+    display: flex;
+    gap: 10px;
+}

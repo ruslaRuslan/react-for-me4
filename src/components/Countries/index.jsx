@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import "./index.css"
 
 const url = "https://restcountries.com/v3.1/all" //close
 

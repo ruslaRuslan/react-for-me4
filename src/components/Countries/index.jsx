@@ -20,8 +20,9 @@ let Countries = () => {
             {
                 countries.map((contry) => {
                     return (
-                        <div>
+                        <div key={contry.name.common}>
                             <img src={contry.flags.png} alt="" />
+                            <h3>{contry.name.official}</h3>
                         </div>
                     )
                 })

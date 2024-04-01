@@ -1,15 +1,32 @@
-import {useEffect} from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 
 const url = "https://restcountries.com/v3.1/all" //close
 
-const Countries = () => {
+let Countries = () => {
+
+    const [countries, setCountries] = useState([])
 
     useEffect(() => {
-        console.log('men geldim...');
-     }, [])
+        axios.get(url).then(({ data }) => {
+            console.log(data);
+            setCountries(data)
+        })
+    }, [])
 
     return (
-        <div>Countries</div>
+        <>
+            {
+                countries.map((contry) => {
+                    return (
+                        <div>
+                            <img src={contry.flags.png} alt="" />
+                        </div>
+                    )
+                })
+            }
+        </>
     )
 }
 

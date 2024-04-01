@@ -10,24 +10,24 @@ let Countries = () => {
 
     useEffect(() => {
         axios.get(url).then(({ data }) => {
-            console.log(data);
             setCountries(data)
         })
     }, [])
 
     return (
-        <>
+        <div className="countries">
             {
                 countries.map((contry) => {
                     return (
                         <div key={contry.name.common}>
                             <img src={contry.flags.png} alt="" />
                             <h3>{contry.name.official}</h3>
+                            <h4>{contry.capital && contry.capital[0]}</h4>
                         </div>
                     )
                 })
             }
-        </>
+        </div>
     )
 }
 

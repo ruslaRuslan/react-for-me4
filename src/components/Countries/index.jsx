@@ -75,7 +75,7 @@ const Countries = () => {
     const [countries, setCountries] = useState([])
 
     function deleteCountry(name) {
-        setCountries((pre) => pre.filter((contry) => contry.name.common !== name))
+        setCountries((pre) => pre.filter((country) => country.name.common !== name))
     }
 
     useEffect(() => {
@@ -84,15 +84,21 @@ const Countries = () => {
         })
     }, [])
 
+
+    useEffect(() => {
+        console.log('countries state-i deyisdi');
+    }, [countries])
+
+
     return (
         <div className="countries">
             {
-                countries.map((contry) => {
+                countries.map((country) => {
                     return (
-                        <div>
-                            <img src={contry.flags.png} alt="" />
-                            <h3>{contry.name.official} <button onClick={() => { deleteCountry(contry.name.common) }} key={contry.name.common}>x</button></h3>
-                            <h4>{contry.capital && contry.capital[0]}</h4>
+                        <div key={country.name.common}>
+                            <img src={country.flags.png} alt="" />
+                            <h3>{country.name.official} <button onClick={() => { deleteCountry(country.name.common) }} key={country.name.common}>x</button></h3>
+                            <h4>{country.capital && country.capital[0]}</h4>
                         </div>
                     )
                 })

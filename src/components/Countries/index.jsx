@@ -8,7 +8,7 @@ const Countries = () => {
     const [countries, setCountries] = useState([])
     function deleteCountry(ad) {
         const filteredCountries = countries.filter((contry)=> contry.name.common !== ad)
-        console.log(filteredCountries);
+       setCountries(filteredCountries)
     }
 
     useEffect(() => {
